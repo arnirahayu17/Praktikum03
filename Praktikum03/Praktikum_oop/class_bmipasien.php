@@ -1,28 +1,19 @@
 <?php
 
-$nama=$_POST['nama'];
-$umur=$_POST['umur'];
-$berat_badan=$_POST['berat'];
-$tinggi_badan=$_POST['tinggi'];
-$kelamin=$_POST['kelamin'];
-$nomor=1;
-
-
 class BmiPasien {
     public $nama;
     public $umur;
-    public $jenis_kelamin;
+    public $jk;
     public $berat;
     public $tinggi;
 
-    function __construct($nama, $umur, $jenis_kelamin, $berat, $tinggi){
+    function __construct($nama, $umur, $jk, $berat, $tinggi){
         $this->nama = $nama;
         $this->umur = $umur;
-        $this->jenis_kelamin = $jenis_kelamin;
+        $this->jk = $jk;
         $this->berat = $berat;
         $this->tinggi = $tinggi;
     }
-
 
     public function hasilBMI(){
         $tinggi_meter = $this->tinggi/100;
@@ -30,6 +21,7 @@ class BmiPasien {
         return $this->bmi;
     }
 
+    
     public function statusBMI(){
         if($this->bmi < 18.5){
             return "Kekurangan berat badan";
@@ -43,7 +35,5 @@ class BmiPasien {
     }
 
 }
-
-$bmi1 = new BmiPasien ($nama, $umur, $jenis_kelamin, $berat_badan, $tinggi_badan);
 
 ?>
