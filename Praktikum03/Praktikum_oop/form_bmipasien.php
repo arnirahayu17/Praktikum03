@@ -79,9 +79,9 @@
         </div>
         <div class="form-group mx-sm-3 mb-2">
         <label style="padding-right: 98px;">Jenis Kelamin</label>
-            <input class="form-check-input" type="radio" name="kelamin" value="Laki-laki">
+            <input class="form-check-input" type="radio" name="jk" value="Laki-laki">
             <label class="form-check-label geser">Laki-Laki</label>
-            <input class="form-check-input" type="radio" name="kelamin" value="Perempuan">
+            <input class="form-check-input" type="radio" name="jk" value="Perempuan">
             <label class="form-check-label">Perempuan</label>
         </div>
         <div class="d-flex justify-content-center">
