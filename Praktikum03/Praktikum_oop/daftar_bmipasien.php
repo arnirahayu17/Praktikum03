@@ -1,14 +1,13 @@
 <?php
-    require_once 'class_bmipasien.php';
+    require 'class_bmipasien.php';
 
     $data_bmi = [
-        ['nama' => 'Arni', 'umur' => 19, 'jenis_kelamin' => 'perempuan', 'berat' => 55, 'tinggi' => 155],
-        ['nama' => 'Ardianto', 'umur' => 22, 'jenis_kelamin' => 'Laki-laki', 'berat' => 65, 'tinggi' => 168],
-        ['nama' => 'Arum', 'umur' => 27, 'jenis_kelamin' => 'Perempuan', 'berat' => 75, 'tinggi' => 158],
-        ['nama' => 'Ayyub', 'umur' => 20, 'jenis_kelamin' => 'Laki-laki', 'berat' => 56, 'tinggi' => 165],
+        ['nama' => 'Arni ', 'umur' => 19, 'jk' => 'perempuan', 'berat' => 60, 'tinggi' => 155],
+        ['nama' => 'ardi', 'umur' => 19, 'jk' => 'Laki-laki', 'berat' => 68, 'tinggi' => 168],
+        ['nama' => 'ari', 'umur' => 28, 'jk' => 'perempuan', 'berat' => 68, 'tinggi' => 158],
+        ['nama' => 'ayyub', 'umur' => 19, 'jk' => 'perempuan', 'berat' => 85, 'tinggi' => 157],
     ];
     $nomor=1;
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,8 +15,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Data BMI Pasien</title>
+    <title>Data BMI Pasien</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
 </head>
 <style>
 body {
@@ -26,7 +26,7 @@ body {
 </style>
 <body>
 <div class="container">
-    <table class="table table-dark table-sm">
+    <table class="table table-dark table-striped">
     <thead>
         <tr>
         <th scope="col">#</th>
@@ -42,12 +42,13 @@ body {
     <tbody>
         <?php
             foreach ($data_bmi as $tablebmi) {
-                $bmi1 = new BmiPasien($tablebmi['nama'], $tablebmi['umur'], $tablebmi['jenis_kelamin'], $tablebmi['berat'], $tablebmi['tinggi']);
+                $bmi1 = new BmiPasien($tablebmi['nama'], $tablebmi['umur'], $tablebmi['jk'], $tablebmi['berat'], $tablebmi['tinggi']);
                 $hasil = $bmi1->hasilBMI();
                 $status = $bmi1->statusBMI();
+
                 echo '<tr><td>'.$nomor.'</td>';
                 echo '<td>'.$bmi1->nama.'</td>';
-                echo '<td>'.$bmi1->jenis_kelamin.'</td>';
+                echo '<td>'.$bmi1->jk.'</td>';
                 echo '<td>'.$bmi1->umur.'</td>';
                 echo '<td>'.$bmi1->berat.'</td>';
                 echo '<td>'.$bmi1->tinggi.'</td>';
