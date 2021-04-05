@@ -1,5 +1,13 @@
 <?php
 require 'class_bmipasien.php';
+$nama=$_POST['nama'];
+$umur=$_POST['umur'];
+$berat=$_POST['berat'];
+$tinggi=$_POST['tinggi'];
+$jk=$_POST['jk'];
+$bmi1 = new BmiPasien($nama, $umur, $jk, $berat, $tinggi);
+$hasilBMI = $bmi1->hasilBMI();
+$statusBMI = $bmi1->statusBMI();
 ?>
 
 <!DOCTYPE html>
@@ -42,8 +50,8 @@ require 'class_bmipasien.php';
 <div class="jumbotron jumbotron-fluid jumb">
     <div class="container">
         <h2 class="judul">Hasil Evaluasi BMI</h2>
-        <p><span style="padding-right: 114px;">Nama</span><?= ': '.$nama.' ('.$kelamin.')' ?></p>
-        <p><span style="padding-right: 20px;">Berat/Tinggi Badan</span><?= ': '.$berat_badan."kg".'/'.$tinggi_badan.'cm' ?></p>
+        <p><span style="padding-right: 114px;">Nama</span><?= ': '.$nama.' ('.$jk.')' ?></p>
+        <p><span style="padding-right: 20px;">Berat/Tinggi Badan</span><?= ': '.$berat."kg".'/'.$tinggi.'cm' ?></p>
         <p><span style="padding-right: 116px;">Umur</span><?= ': '.$umur.' Tahun' ?></p>
         <p><span style="padding-right: 128px;">BMI</span><?= ': '.$bmi1->hasilBMI(); ?></p>
         <p><span style="padding-right: 122px;">Hasil</span><?= ': '.$bmi1->statusBMI(); ?></p>
